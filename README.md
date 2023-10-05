@@ -73,4 +73,4 @@ Tras ejecutarlo se abrirá Gazebo con un objeto en las coordenadas x=3, y=5 y gi
 
 ![alt text](img/imagen3.png)
 
-Las coordenadas de origen estan en la esquina inferior izquierda del escenario y cada cuadricula es de 1m.
+Las coordenadas de origen estan en la esquina inferior izquierda del escenario y cada cuadricula es de 1m. La base del obstaculo es un cuadrado de 0.4m de lado y tiene una altura de 1.2m.

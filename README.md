@@ -52,3 +52,25 @@ En una nueva pestaña del terminator (sin cerrar la anterior) ejecuta el comando
     rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 **Ya puedes mover el AGV utilizando el teclado.**
+
+## Prueba escenario vacio
+
+Para la primera prueba el escenario estará vacio, teniendo que navegar a la lista de coordenadas que se proporcionen  y teniendo que esperar un tiempo entre punto y punto.
+
+Para poder simular el escenario 1 ejecuta el siguiente comando en una pestaña de la terminal:
+
+    roslaunch SocialTech-Gazebo gazeboXacro.launch
+
+En otra terminal lanza los nodos que hayas desarrollado para dicha prueba.
+
+## Prueba escenario con obstaculos
+
+Para añadir un obstaculo al circuito utiliza el siguiente comando:
+
+    roslaunch SocialTech-Gazebo gazebo_obstaculo_fijo.launch xC:=3 yC:=5 yawC:=0.785
+
+Tras ejecutarlo se abrirá Gazebo con un objeto en las coordenadas x=3, y=5 y girado 45º, como se puede ver en la imagen.
+
+![alt text](img/imagen3.png)
+
+Las coordenadas de origen estan en la esquina inferior izquierda del escenario y cada cuadricula es de 1m.

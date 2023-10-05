@@ -1,6 +1,9 @@
 FROM  javicensaez/acroba_core:1.0
 
 USER root
+
+COPY ./background.png /usr/share/lxde/wallpapers/fondo.png
+
 RUN /bin/bash -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 RUN /bin/bash -c "curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -"
 RUN sudo apt-get update || echo
@@ -17,17 +20,16 @@ RUN sudo apt install -y --no-install-recommends ros-noetic-ros-controllers
 
 USER ubuntu
 
-# Copy acroba workspace into docker
+RUN /bin/bash -c "git clone --recurse-submodules https://github.com/SocialTech-Challenge/SocialTech_ws" 
+                  
+RUN /bin/bash -c "cd SocialTech_ws && \
+                  git submodule update --recursive --remote"; exit 0
+
 RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && \
-                  mkdir -p /home/ubuntu/agilex_ws/src && \
-                  cd /home/ubuntu/agilex_ws/src && \
-                  git clone https://github.com/agilexrobotics/ugv_sdk.git &&\
-                  git clone https://github.com/agilexrobotics/tracer_ros.git &&\
-		  git clone https://github.com/aws-robotics/aws-robomaker-bookstore-world &&\
-                  cd .. &&\
+                  cd SocialTech_ws && \
                   catkin_make"
 
-RUN /bin/bash -c "echo 'source /home/ubuntu/agilex_ws/devel/setup.bash' >> /home/ubuntu/.bashrc"
+RUN /bin/bash -c "echo 'source /home/ubuntu/SocialTech_ws/devel/setup.bash' >> /home/ubuntu/.bashrc"
 
 
 

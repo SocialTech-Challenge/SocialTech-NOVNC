@@ -18,6 +18,10 @@ Enlace: https://hub.docker.com/editions/community/docker-ce-desktop-windows
 
 La instalación proporciona Docker Engine, el cliente Docker CLI, Docker Compose, Docker Machine y Kitematic. Los contenedores e imágenes creados con Docker Desktop for Windows se comparten entre todas las cuentas de usuario en las máquinas donde está instalado. Esto se debe a que todas las cuentas de Windows utilizan la misma máquina virtual (VM) para construir y ejecutar contenedores.
 
+# Instalar GIT
+
+Para clonar el repositorio es necesario instalar GIT. Solo tienes que visitar http://git-scm.com/download/win y la descarga empezará automáticamente. 
+
 # Clonar y ejecutar el contenedor de SocialTech-Challenge
 
 Presiona las teclas windos+R a la vez. En la ventana emergente escribe ***cmd*** y elecuta el comando.
@@ -61,7 +65,25 @@ Para poder simular el escenario 1 ejecuta el siguiente comando en una pestaña d
 
     roslaunch SocialTech-Gazebo gazeboXacro.launch
 
-En otra terminal lanza los nodos que hayas desarrollado para dicha prueba.
+## Comenzar a mapear una zona    
+
+En otra terminal lanza el nodo para generar un mapa con el siguiente comando:
+
+    rosrun gmapping slam_gmapping scan:=/scan
+
+Para visualizar el mapa que se esta generando en RVIZ añade un topic nuevo como se ve en la imagen de abajo.
+
+![alt text](img/imagen4.png)
+
+Ahora usando el nodo de teleoperación podrás ir viendo como se genera un mapa, como en la imagen inferior.
+
+![alt text](img/imagen5.png)
+
+Cuando tengas toda la superficie mapeada en otro terminal ejecuta el comando:
+
+    rosrun map_server map_saver -f mapa
+
+En este momento se generarán dos ficheros, uno con extensión PGM y otro con extensión YAML.
 
 ## Prueba escenario con obstaculos
 

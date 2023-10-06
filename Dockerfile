@@ -16,7 +16,8 @@ RUN sudo apt-get install -y --no-install-recommends build-essential git cmake li
 RUN sudo apt install -y --no-install-recommends ros-noetic-teleop-twist-keyboard 
 RUN sudo apt install -y --no-install-recommends ros-noetic-joint-state-publisher-gui
 RUN sudo apt install -y --no-install-recommends ros-noetic-ros-controllers
-
+RUN sudo apt install -y ros-noetic-gmapping
+RUN sudo apt install -y ros-noetic-map-server
 
 USER ubuntu
 

@@ -43,7 +43,7 @@ Esto levantará el contenedor y sin cerrar esta ventana ve a un navegador web y 
 
 Dentro del contenedor abre el terminal ***Terminator*** y ejecuta el siguiente comando:
 
-    roslaunch SocialTech-Gazebo gazeboXacro.launch
+    roslaunch SocialTech-Gazebo prueba1.launch
 
 ![alt text](img/imagen1.png)
 
@@ -63,7 +63,7 @@ Para la primera prueba el escenario estará vacio, teniendo que navegar a la lis
 
 Para poder simular el escenario 1 ejecuta el siguiente comando en una pestaña de la terminal:
 
-    roslaunch SocialTech-Gazebo gazeboXacro.launch
+    roslaunch SocialTech-Gazebo prueba1.launch
 
 ## Comenzar a mapear una zona    
 
@@ -89,7 +89,7 @@ En este momento se generarán dos ficheros, uno con extensión PGM y otro con ex
 
 Para añadir un obstaculo al circuito utiliza el siguiente comando:
 
-    roslaunch SocialTech-Gazebo gazebo_obstaculo_fijo.launch xC:=3 yC:=5 yawC:=0.785
+    roslaunch SocialTech-Gazebo prueba2.launch 
 
 Tras ejecutarlo se abrirá Gazebo con un objeto en las coordenadas x=3, y=5 y girado 45º, como se puede ver en la imagen.
 
